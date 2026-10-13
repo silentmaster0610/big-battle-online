@@ -3,7 +3,11 @@ services:
     name: big-battle-online
     runtime: node
     plan: free
-    region: singapore
-    buildCommand: npm install
+    buildCommand: npm install --omit=dev
     startCommand: npm start
     healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22.16.0
